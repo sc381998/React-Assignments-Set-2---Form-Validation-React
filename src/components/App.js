@@ -18,18 +18,20 @@ const App = () => {
     setFields((prevValue) => {
       return { ...prevValue, [name]: value };
     });
-    console.log(fields);
+    // console.log(fields);
   }
   function submitForm(event) {
+    // console.log(fields.email.substring(0, fields.email.indexOf("@")));
     event.preventDefault();
-    setShow(true);
+    // console.log("sfsagg");
+
     if (
       !fields["name"] ||
       !fields["email"] ||
+      !fields["gender"] ||
       !fields["phone"] ||
       !fields["password"]
     ) {
-      console.log("124");
       setError("All fields are mandatory");
     } else if (!fields["name"].match(/^[a-zA-Z]+$/)) {
       setError("Name is not alphanumeric");
@@ -42,6 +44,7 @@ const App = () => {
     } else if (fields["password"].length < 6) {
       setError("Password must contain atleast 6 letters");
     } else {
+      setShow(true);
       setError("");
       setFields({
         name: "",
@@ -52,7 +55,7 @@ const App = () => {
       });
     }
   }
-  console.log(error);
+  // console.log(error);
   return (
     <div id="main">
       <form id="login-form">
@@ -62,6 +65,7 @@ const App = () => {
           name="name"
           placeholder="Enter name"
           onChange={handleChange}
+          value={fields.name}
         />
         {/* {error.nameError ? (
           <span style={{ color: "red" }}>Name is not alphanumeric</span>
@@ -75,6 +79,7 @@ const App = () => {
           name="email"
           placeholder="Enter your email"
           onChange={handleChange}
+          value={fields.email}
         />
         {/* {error.emailError && (
           <span style={{ color: "red" }}>Email must contain @</span>
@@ -117,6 +122,7 @@ const App = () => {
           name="phone"
           placeholder="Phone Number"
           onChange={handleChange}
+          value={fields.phone}
         />
         {/* {error.phoneError && (
           <span style={{ color: "red" }}>
@@ -130,6 +136,7 @@ const App = () => {
           name="password"
           placeholder="Password"
           onChange={handleChange}
+          value={fields.password}
         />
         {/* {error.passwordError && (
           <span style={{ color: "red" }}>
@@ -146,10 +153,10 @@ const App = () => {
         </button>
       </form>
       <h1>
-        {/* {error.length !== 0
+        {error.length !== 0
           ? error
           : show &&
-            `Hello ${fields.email.substring(0, fields.email.indexOf("@"))}`} */}
+            `Hello ${fields.email.substring(0, fields.email.indexOf("@"))}`}
       </h1>
     </div>
   );
