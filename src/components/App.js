@@ -63,24 +63,25 @@ const App = () => {
           placeholder="Enter name"
           onChange={handleChange}
         />
-        {error.nameError ? (
+        {/* {error.nameError ? (
           <span style={{ color: "red" }}>Name is not alphanumeric</span>
         ) : (
           ""
-        )}
+        )} */}
 
         <input
-          ata-testid="email"
+          data-testid="email"
           type="email"
           name="email"
           placeholder="Enter your email"
           onChange={handleChange}
         />
-        {error.emailError && (
+        {/* {error.emailError && (
           <span style={{ color: "red" }}>Email must contain @</span>
-        )}
+        )} */}
 
         <input
+          data-testid="gender"
           type="radio"
           onChange={handleChange}
           defaultChecked
@@ -89,6 +90,7 @@ const App = () => {
         />
         <label htmlFor="male">male</label>
         <input
+          data-testid="gender"
           type="radio"
           onChange={handleChange}
           name="gender"
@@ -96,30 +98,31 @@ const App = () => {
         />
         <label htmlFor="female">female</label>
         <input
+          data-testid="gender"
           type="radio"
           onChange={handleChange}
           name="gender"
           value="other"
         />
         <label htmlFor="other">other</label>
-        {error.genderError && (
+        {/* {error.genderError && (
           <span style={{ color: "red" }}>
             Please identify as male, female or others
           </span>
-        )}
+        )} */}
 
         <input
-          data-testid="phone"
+          data-testid="phoneNumber"
           type="number"
           name="phone"
           placeholder="Phone Number"
           onChange={handleChange}
         />
-        {error.phoneError && (
+        {/* {error.phoneError && (
           <span style={{ color: "red" }}>
             Phone Number must contain only numbers
           </span>
-        )}
+        )} */}
 
         <input
           data-testid="password"
@@ -128,11 +131,11 @@ const App = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        {error.passwordError && (
+        {/* {error.passwordError && (
           <span style={{ color: "red" }}>
             Password must contain atleast 6 letters
           </span>
-        )}
+        )} */}
 
         <button
           data-testid="submit"
@@ -143,10 +146,10 @@ const App = () => {
         </button>
       </form>
       <h1>
-        {error.length !== 0
+        {/* {error.length !== 0
           ? error
           : show &&
-            `Hello ${fields.email.substring(0, fields.email.indexOf("@"))}`}
+            `Hello ${fields.email.substring(0, fields.email.indexOf("@"))}`} */}
       </h1>
     </div>
   );
