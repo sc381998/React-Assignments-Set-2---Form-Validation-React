@@ -9,6 +9,7 @@ const App = () => {
     phone: "",
     password: ""
   });
+  const [username, setUsername] = useState("");
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
 
@@ -45,6 +46,7 @@ const App = () => {
       setError("Password must contain atleast 6 letters");
     } else {
       setShow(true);
+      setUsername(fields.email.substring(0, fields.email.indexOf("@")));
       setError("");
       setFields({
         name: "",
@@ -152,12 +154,7 @@ const App = () => {
           Signup
         </button>
       </form>
-      <h1>
-        {error.length !== 0
-          ? error
-          : show &&
-            `Hello ${fields.email.substring(0, fields.email.indexOf("@"))}`}
-      </h1>
+      <h1>{error.length !== 0 ? error : show && `Hello ${username}`}</h1>
     </div>
   );
 };
